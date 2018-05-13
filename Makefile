@@ -15,5 +15,7 @@ build/output.o: src/output.c
 build/move.o: src/move.c
 	gcc -Wall -Werror -c src/move.c -o build/move.o
 
+.PHONY: clean
+
 clean:
 	rm -rf build/*.o

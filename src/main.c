@@ -3,13 +3,13 @@
 #include "move.h"
 #include "output.h"
 
-void PawnMove ();
-void PawnMoveWhite ();
-void PawnMoveBlack ();
+int PawnMove ();
+int PawnMoveWhite ();
+int PawnMoveBlack ();
 
 int main()
 {	
-	char con;
+
 	char A[10][10];
 	layout(A);
 	output(A);
@@ -17,6 +17,7 @@ int main()
 	int x, x1;
 	int yy, yy1;
 	int y, y1;
+	int hod=0;
 	printf("\n\n");
 	while (1)
 	{
@@ -24,7 +25,7 @@ int main()
 		do
 		{
 			flag = 0;
-			printf("Print positions (ex: a2 a3)\n");
+			//printf("Print positions (ex: a2 a3)\n");
 			scanf("%c %d %c %d", &xx, &yy, &xx1, &yy1);
 			if (xx == 'a') {x = 1; flag++;}
 			if (xx == 'b') {x = 2; flag++;}
@@ -63,14 +64,10 @@ int main()
 			if (yy1 == 8) {y1 = 1; flag++;}
 		} while (flag != 4);
 		printf("\n\n");	
-		PawnMove(y, x, y1, x1, A);
+
+		hod = PawnMove(y, x, y1, x1, A, hod);
+		
 		output(A);
-		printf("\n\nExit? (print 'y')\n");
-		scanf(" %c", &con);
-		if (con == 'y')
-		{
-			return 0;
-		}
 	}
 	return 0;
 }
