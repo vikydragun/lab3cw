@@ -17,4 +17,3 @@
 *.sqlite
 bin/program
 build/*.o
-.travis.yml
